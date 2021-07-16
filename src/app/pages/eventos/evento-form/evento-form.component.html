@@ -1,1 +1,113 @@
-<p>evento-form works!</p>
+
+<form [formGroup]="resourceForm" (submit)="submitForm()" class="" novalidate>
+
+  <div class="card">
+    <div class="card-header">
+      01. Informações do Evento
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="name">Nome do evento:</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+
+          <!--<app-form-field-error [form-control]="resourceForm.get('name')"></app-form-field-error> -->
+        </div>
+
+        <div class="form-group col-md-5">
+          <label for="email_site">E-mail e/ou site divulgação:</label>
+          <input type="text" class="form-control" id="email_site" formControlName="email_site">
+
+          <!--<app-form-field-error [form-control]="resourceForm.get('name')"></app-form-field-error> -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-5">
+          <label for="address">Local (endereço):</label>
+          <input type="text" class="form-control" id="address" formControlName="address">
+        </div>
+        <div class="form-group col-md-5">
+          <label for="city">Cidade/RA:</label>
+          <input type="text" class="form-control" id="city" formControlName="city">
+        </div>
+      </div>
+      <div class="p-field p-col-12 p-md-4">
+        <label for="icon">Icon</label>
+        <!--<p-calendar [(ngModel)]="date3" [showIcon]="true" inputId="icon"></p-calendar>-->
+      </div>
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label for="dateI">Data Início:</label>
+          <p-calendar
+            id="dateI"
+            formControlName="dateI"
+            inputStyleClass="form-control"
+            dataType="string"
+            dateFormat="dd/mm/yy"
+            [locale]="ptBR"
+            [showButtonBar]="true">
+          </p-calendar>
+          <!--<input type="text" class="form-control"> -->
+        </div>
+        <div class="form-group col-md-3">
+          <label for="dateF">Data Fim:</label>
+          <p-calendar
+            id="dateF"
+            formControlName="dateI"
+            inputStyleClass="form-control"
+            dataType="string"
+            dateFormat="dd/mm/yy"
+            [locale]="ptBR"
+            [showButtonBar]="true">
+          </p-calendar>
+          <input type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="">Hora de Início:</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="">Hora de Fim:</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label for="">Público máximo:</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="">Idade mínima:</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="">Venda de ingressos:</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Sim</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Não</label>
+          </div>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="">Quantidade:</label>
+          <input type="text" class="form-control">
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <app-server-error-messages [server-error-messages]="serverErrorMessages"></app-server-error-messages>
+
+  <button [disabled]="submittingForm || resourceForm.invalid" type="submit" class="btn btn-primary btn-lg float-right mt-3">
+    Salvar
+  </button>
+
+</form>

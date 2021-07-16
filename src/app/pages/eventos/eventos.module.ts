@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { EventosRoutingModule } from './eventos-routing.module';
 import { EventoFormComponent } from './evento-form/evento-form.component';
 
+import { Calenda }
+
 
 @NgModule({
   declarations: [
